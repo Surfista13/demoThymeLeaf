@@ -13,7 +13,9 @@
       <tr>
         <th>Titre</th>
         <th>Auteur</th>
-        <th>Editeur</th>
+        <th>nb pages</th>
+        <th>lien avec requestParam</th>
+        <th>lien avec path variable</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +24,7 @@
         <td th:text="${livre.auteur}"></td>
         <td th:text="${livre.nbPages}"></td>
         <td><a th:href="@{/affichelivre(id=${livre.id})}">mon livre</a></td>
+        <td><a th:href="@{/affichelivre/__${livre.id}__}">mon livre</a></td>
       </tr>
     </tbody>
   </table>
