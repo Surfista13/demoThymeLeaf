@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.ord">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>Liste des livres</h1>
+  <p>Il y en a <span th:text="${livres.size()}"></span><span th:text=" ${livres.size() > 1 ? ' livres' : ' livre'}"></span></p>
+
+  <table th:if="${livres.size() > 0}">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Editeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="livre : ${livres}">
+        <td th:text="${livre.titre}"></td>
+        <td th:text="${livre.auteur}"></td>
+        <td th:text="${livre.nbPages}"></td>
+        <td><a th:href="@{/affichelivre(id=${livre.id})}">mon livre</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
